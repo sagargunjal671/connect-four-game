@@ -21,12 +21,22 @@ while True:
         break
     
 while True:
+    
+    if col>=row:
+        max1=col
+    else:
+        max1=row
+   
     pi = int(input("Enter number of pieces to connect: "))
 #checking pieces to connect input for positive and non zero
     if pi < 1:
-        print("Please enter positive,nonzero inter for no of pieces to connect")
+        print("Please enter positive,nonzero intege for no of pieces to connect")
         continue
+    elif pi>max1:
+        print("we cant Achieve to this condition please enter number less than maximun i.e.column or row")
+        continue    
     else:
+        
         break
 
 #class for making board of given input of rows and column
@@ -109,7 +119,7 @@ class Board():
                 else:
                     p=2
                 #displaying which player is winning the game
-                print("hurrey!!!!   Player {0} is the winner!".format(p))
+                print("Hurrey!!!!Player {0} is the winner!".format(p))
                 return lletter   
 
         # Did not find any winners
@@ -117,6 +127,12 @@ class Board():
 
 #for playing the game
 def play():
+    #asking user for player 1 colour choice
+    player1=input("Player one, do you want red or yellow \n(r=Red or y=Yellow)? ")
+    if player1=='r':
+        player2='y'
+    else:
+        player2='r'
     # Initialize the game board
     game = Board()
 
@@ -151,12 +167,8 @@ def play():
 if __name__ == '__main__':
     ch=1
     while ch==1:
-        #asking user for player 1 colour choice
-        player1=input("Player one, do you want red or yellow (r or y)? ")
-        if player1=='r':
-            player2='y'
-        else:
-            player2='r'
+       
         play()
-        #ask to user is they want to play it again
+        #asking user to play it again or not
         ch=int(input("Do you want to play again(0-no, 1-yes)? "))
+        
