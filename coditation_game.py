@@ -1,6 +1,4 @@
 
-
-
 # accept the input from user
 while True:
     row = int(input("Enter number of rows: "))
